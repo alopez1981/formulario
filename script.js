@@ -76,17 +76,13 @@ $canvas.addEventListener("mousemove", (evento) => {
     });
 });
 
-$(document).ready(function(){
+document.querySelector("form").addEventListener("submit", function(event) {
+     // Evitar el comportamiento predeterminado del formulario
 
-    $('.datepicker').datepicker({
-        format: 'dd-mm-yyyy',
-        autoclose: true,
-        startDate: '0d'
-    });
-    
-    $('.cell').click(function(){
-        $('.cell').removeClass('select');
-        $(this).addClass('select');
-    });
-    
-    });
+    const nombreUsuario = document.querySelector("#nombreUsuario").value;
+    const fecha = new Date().toLocaleDateString();
+
+    localStorage.setItem("nombreUsuario", nombreUsuario);
+    localStorage.setItem("fecha", fecha);
+});
+

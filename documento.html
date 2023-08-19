@@ -17,8 +17,11 @@
 
 <body>
     <h1>Consentimiento examen práctico </h1>
+    <p>Nombre: <span id="nombreSpan"></span></p>
+    <p>Fecha: <span id="fechaSpan"></span></p>
    
-   <img src = "images/logo.jpg" width="80" height="80"
+   <img src = "images/logo.jpg" width="80" height="80"/>
+
     <p> El Alumno por voluntad propia, decide presentarse a examen en la Jefatura Provincialde Tráfico el próximo sin la recomendación de nuestro equipo docente y sin haber llegado al nivel adecuado de preparación, según los estándares de formación de Hoy-Voy.</p>
     <p>El alumno debe tener en cuenta que la Jefatura Provincial de Tráfico trabaja con fechas aproximadas y hasta una semana antes no confirman la fecha exacta. Si el alumno no se pudiera presentar, deberá aportar un justificante debidamente cumplimentado para que no se le descuente una convocatoria.</p>
         
@@ -27,12 +30,24 @@
 <img src="firma.png" alt="Firma del alumno" id="firma">
 <br>
 <script>
-      if (window.opener) {
+      
+    // Obtener datos guardados en localStorage
+    const nombreUsuario = localStorage.getItem("nombreUsuario");
+    const fecha = localStorage.getItem("fecha");
+
+    // Mostrar el nombre y la fecha en los elementos spans correspondientes
+    
+
+    // Si tienes una función para obtener la imagen de la firma
+    if (window.opener) {
         document.querySelector("#firma").src = window.opener.obtenerImagen();
-        // Imprimir documento. Si no quieres imprimir, remueve la siguiente línea
-        window.print();
+        document.querySelector("#nombreSpan").textContent = nombreUsuario;
+    document.querySelector("#fechaSpan").textContent = fecha;
     }
+
 </script>
+
+
 </body>
 
 </html>
